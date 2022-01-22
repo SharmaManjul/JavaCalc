@@ -13,7 +13,6 @@ public class MathEngine {
      Getters and setters here allow us to control and hide the left, right and opCode variables. Only using a getter for
      the result allows us to protect the final data and restrict any other class from accessing it.
     */
-
     public double getLeftVal(){return leftVal;}
     public void setLeftVal(double leftVal){this.leftVal = leftVal;}
     public double getRightVal(){return rightVal;}
@@ -21,6 +20,26 @@ public class MathEngine {
     public char getOpCode(){return opCode;}
     public void setOpCode(char opCode){this.opCode = opCode;}
     public double getResult(){return result;}
+
+    /*
+    Constructors: They help set the initial state of the class.
+    P.S. There are multiple ways to set initial state of a class and they follow this order:
+    Field Initialization <  Initialization Block < Constructor
+
+    Overloading: A class can differentiate between its multiple constructors or methods using their unique signature
+    which consists of their name, number and type of parameters.
+     */
+    public MathEngine(){}
+
+    public MathEngine(char opCode){
+        this.opCode = opCode;
+    }
+
+    public MathEngine(double leftVal, double rightVal, char opCode){
+        this(opCode);
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+    }
 
     public void calculate(){
         switch (opCode){
