@@ -22,9 +22,12 @@ public class MathEngine {
     public double getResult(){return result;}
 
     /*
-    Constructors: they help set the initial state of the class.
+    Constructors: They help set the initial state of the class.
     P.S. There are multiple ways to set initial state of a class and they follow this order:
     Field Initialization <  Initialization Block < Constructor
+
+    Overloading: A class can differentiate between its multiple constructors or methods using their unique signature
+    which consists of their name, number and type of parameters.
      */
     public MathEngine(){}
 
