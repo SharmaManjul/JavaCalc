@@ -17,16 +17,15 @@ public class Main {
         for (MathEngine value : values) {
             value.calculate();
             System.out.print("The result of your calculations is: ");
-            System.out.println(value.result);
+            System.out.println(value.getResult());
         }
     }
 
     public static MathEngine creater(double leftVal, double rightVal, char opCode){
         MathEngine value = new MathEngine();
-        value.leftVal = leftVal;
-        value.rightVal = rightVal;
-        value.opCode = opCode;
-
+        value.setLeftVal(leftVal);
+        value.setRightVal(rightVal);
+        value.setOpCode(opCode);
         return value;
     }
 }
