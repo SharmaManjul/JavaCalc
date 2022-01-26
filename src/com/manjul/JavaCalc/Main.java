@@ -13,6 +13,9 @@ public class Main {
         useCalculatorBase();
         //Using the Calculator helper which takes inout of string and outputs a string.
         String[] statements = {
+                "add 1.0", //Invalid input, should result in Error: incorrect number of values
+                "add xyz 23.0", //Invalid input, should result in Error: non-numeric data
+                "dividew 35.0 64.0", //Invalid input, should result in Error: invalid command
                 "divide 100.0 50.0",
                 "add 25.0 92.0",
                 "subtract 225.0 17.0",
@@ -22,8 +25,15 @@ public class Main {
         CalculatorHelper helper = new CalculatorHelper();
 
         for (String statement:statements){
-            helper.process(statement);
-            System.out.println(helper);
+            try {
+                helper.process(statement);
+                System.out.println(helper);
+            } catch (InvalidStatementException e){
+                System.out.println(e.getMessage());
+                if(e.getCause() != null)
+                    System.out.println("    Original exception: " + e.getCause().getMessage());
+            }
+
         }
 
 

@@ -14,14 +14,25 @@ public class CalculatorHelper {
     double rightValue;
     double result;
 
-    public void process (String statements){
+    public void process (String statements) throws InvalidStatementException{
         //This will receive parameter: "divide 100.0 50.0"
         String[] parts = statements.split(" ");
+
+        if (parts.length != 3)
+            throw new InvalidStatementException("Incorrect Number of fields", statements); //Throwing custom exception.
+
         String commandString = parts[0]; //Expected value of command is add, subtract, divide or multiply.
-        leftValue = Double.parseDouble(parts[1]); //Convert string literal to double.
-        rightValue = Double.parseDouble(parts[2]); //Convert string literal to double.
+
+        try {
+            leftValue = Double.parseDouble(parts[1]); //Convert string literal to double.
+            rightValue = Double.parseDouble(parts[2]); //Convert string literal to double.
+        } catch (NumberFormatException e){
+            throw new InvalidStatementException("Non-numeric data", statements, e); //Throwing custom exception.
+        }
 
         setCommandFromString(commandString);
+        if (command == null)
+            throw new InvalidStatementException("Invalid Command", statements); //Throwing custom exception.
 
         CalculateBase calculator = null;
         switch (command){
