@@ -1,6 +1,7 @@
 package com.manjul.JavaCalc;
 //ENUMERATION for operation commands.
-public enum MathCommand {
+//Private to prevent only package uses MathCommand.
+enum MathCommand {
     Add,
     Multiply,
     Subtract,

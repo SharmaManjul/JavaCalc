@@ -1,4 +1,5 @@
 package com.manjul.JavaCalc;
+//Class that inherits Exceptions and initializes two constructors.
 
 public class InvalidStatementException extends Exception {
 
