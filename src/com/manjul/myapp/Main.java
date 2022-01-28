@@ -1,5 +1,13 @@
-package com.manjul.JavaCalc;
-
+package com.manjul.myapp;
+//Individually importing classes instead of * to protect from future class changes that affect main.
+import com.manjul.JavaCalc.Adder;
+import com.manjul.JavaCalc.CalculateBase;
+import com.manjul.JavaCalc.CalculatorHelper;
+import com.manjul.JavaCalc.Divider;
+import com.manjul.JavaCalc.InvalidStatementException;
+import com.manjul.JavaCalc.MathEngine;
+import com.manjul.JavaCalc.Multiplier;
+import com.manjul.JavaCalc.Subtracter;
 import org.w3c.dom.html.HTMLDivElement;
 
 import java.awt.*;
@@ -58,7 +66,7 @@ public class Main {
         System.out.println("Using calculators:");
         System.out.println();
 
-        CalculateBase [] calculators = {
+        CalculateBase[] calculators = {
                 new Adder(25.0d, 92.0d),
                 new Divider(100.0d, 50.0d),
                 new Multiplier(11.0d, 3.0d),
